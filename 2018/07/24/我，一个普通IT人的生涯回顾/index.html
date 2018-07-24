@@ -11,7 +11,7 @@
 
     <title>
         
-        Vinlic的博客 | Vinlic Blog
+        我，一个普通IT人的生涯回顾 - Vinlic的博客 | Vinlic Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -111,42 +115,37 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-24</div>
-        <div class="post-info">
-            <a href="/2018/07/24/我，一个普通IT人的生涯回顾/">
-                <h3>
-                    我，一个普通IT人的生涯回顾
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-07-23</div>
-        <div class="post-info">
-            <a href="/2018/07/23/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    
-</ul>
 
+
+<div class="post-container">
+    <div class="post-title">
+        我，一个普通IT人的生涯回顾
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-07-24 21:30:22</span></span>
+        
+        </span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -198,10 +197,24 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '我，一个普通IT人的生涯回顾',
+        owner: 'Vinlic',
+        repo: 'vinlic.github.io',
+        oauth: {
+            client_id: 'ec44ee167ef2ea0f98f4',
+            client_secret: '5031b6a9158c6e77b4467004189ddb00517c44a8',
+        },
+    })
+    gitment.render('comment-container')
+</script>
 
 <script>
     //百度统计代码

@@ -2925,7 +2925,7 @@ function renderComments(_ref2, instance) {
   } else if (!comments.length) {
     var emptyBlock = document.createElement('div');
     emptyBlock.className = 'gitment-comments-empty';
-    emptyBlock.innerText = '暂无评论，来过就留点痕迹吧';
+    emptyBlock.innerText = '暂时没有评论，留下你的评论吧';
     container.appendChild(emptyBlock);
     return container;
   }
