@@ -726,7 +726,7 @@ body {
   flex-direction: row;
 }
 .index-container .index-left {
-  width: 240px;
+  width: 260px;
 }
 .index-container .index-middle {
   max-width: 784px;
@@ -1180,10 +1180,13 @@ pre .javascript .function {
   border-left: none !important;
 }
 .toc-fixed {
+  max-height: 100%;
   position: fixed;
   top: 10px;
-  width: 240px;
+  width: 220px;
+  overflow-y: auto;
 }
+
 @media screen and (max-width: 1180px) {
   .toc-article {
     display: none;
@@ -1191,4 +1194,8 @@ pre .javascript .function {
 }
 .gitment-comment p {
   text-indent: 0;
+}
+
+.toc-fixed::-webkit-scrollbar {
+  background: transparent;
 }
