@@ -11,7 +11,7 @@
 
     <title>
         
-        Tags - Vinlic的博客 | Vinlic Blog
+        搭建Hexo博客并托管到GitHub/Gitee的Page服务 - Vinlic的博客 | Vinlic Blog
         
     </title>
 
@@ -59,7 +59,7 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Hexo？"><span class="toc-text">什么是Hexo？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Git"><span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Node-js"><span class="toc-text">安装Node.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-text">安装Hexo</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -110,36 +114,63 @@
     
     <div class="index-middle">
         <!-- Main Content -->
-        <div id='tag_cloud' class="tags">
-    
-    <a href="#回忆" title="回忆" rel="1">回忆</a>
-    
-</div>
-
-<!-- 标签列表 -->
+        
 
 
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="回忆">
-                    <span class="tag-text">回忆</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/p/45639/">
-            <h2 class="post-title">
-                我，一个普通IT人的生涯回顾
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+<div class="post-container">
+    <div class="post-title">
+        搭建Hexo博客并托管到GitHub/Gitee的Page服务
     </div>
-    
-</div>
 
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-02 23:23:59</span></span>
+        
+        </span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="什么是Hexo？"><a href="#什么是Hexo？" class="headerlink" title="什么是Hexo？"></a>什么是Hexo？</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>在尝试过诸如WordPress这些博客系统后，觉得这些系统都太笨重了，直到看见了Hexo，刚好满足我的需求，配上Nginx的话甚好。</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><blockquote>
+<p>笔者在Windows10以及CentOS7上已验证此搭建在此环境可用。</p>
+</blockquote>
+<p>请确保你已经有一个<strong><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></strong>或<strong><a href="https://gitee.com/" target="_blank" rel="noopener">Gitee</a></strong>的账号。</p>
+<p>搭建之前请务必保证你已经安装了<strong>Node.js</strong>和<strong>Git</strong>，如未安装请参考：</p>
+<h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><ul>
+<li>Windows：下载并安装 <a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">Git</a></li>
+<li>Mac：使用 Homebrew, MacPorts : <code>brew install git</code>;或下载 <a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">安装程序</a> 安装</li>
+<li>Linux (Fedora, Red Hat, CentOS) : <code>sudo yum install git-core</code></li>
+<li>Linux (Ubuntu, Debian) : <code>sudo apt-get install git-core</code></li>
+</ul>
+<blockquote>
+<p>对于Windows用户来说，安装Git For Windows时，请勾选Add to PATH选项。<br>另外，也可以使用Git Bash，这是git for windows自带的一组程序，提供了Linux风格的shell。打开它的方法很简单，在任意位置单击右键，选择“Git Bash Here”即可。由于Hexo的很多操作都涉及到命令行，可以考虑始终使用Git Bash来进行操作。</p>
+</blockquote>
+<h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><ul>
+<li>Windows : 下载并安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
+<li>Mac : 下载并安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
+<li>Linux : 初学者建议直接安装 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>，老司机建议使用<a href="https://github.com/creationix/nvm/blob/master/README.md" target="_blank" rel="noopener">NVM</a>管理Node版本</li>
+</ul>
+<p>安装后可以通过命令行检查npm以及git命令是否可用。</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用NPM安装Hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.vinlic.com/p/50211/" target="_blank" rel="noopener">npm安装速度慢时可以考虑配置npm源为淘宝</a></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -191,10 +222,24 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '搭建Hexo博客并托管到GitHub/Gitee的Page服务',
+        owner: 'Vinlic',
+        repo: 'vinlic.github.io',
+        oauth: {
+            client_id: 'ec44ee167ef2ea0f98f4',
+            client_secret: '5031b6a9158c6e77b4467004189ddb00517c44a8',
+        },
+    })
+    gitment.render('comment-container')
+</script>
 
 <script>
     //百度统计代码
