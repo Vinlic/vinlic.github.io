@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Vinlic-陈炜宾的个人博客">
-    <meta name="keyword"  content="">
+    <meta name="keyword" content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
@@ -45,7 +45,7 @@
 <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/img/avatar.jpg" />
+            <img src="/img/avatar.jpg">
         </div>
         <div class="name">
             <i>一个多梦的制杖</i>
@@ -53,25 +53,25 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>存档</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>关于</span>
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Hexo？"><span class="toc-text">什么是Hexo？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Git"><span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Node-js"><span class="toc-text">安装Node.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Hexo"><span class="toc-text">安装Hexo</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是hexo？"><span class="toc-text">什么是Hexo？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装git"><span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装node-js"><span class="toc-text">安装Node.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo"><span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化hexo"><span class="toc-text">初始化Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置hexo"><span class="toc-text">配置Hexo</span></a></li></ol>
 </div>
     
 </div>
@@ -99,7 +99,7 @@
     <div class="search-container">
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
+            <input id="search-input">
             <span id="begin-search">搜索</span>
         </div>
         <div class="search-result-container" id="search-result-container">
@@ -125,36 +125,51 @@
     <div class="post-meta">
         <span class="attr">发布于：<span>2018-08-02 23:23:59</span></span>
         
-        </span>
-</span>
-</span>
+        
+
+
     </div>
     <div class="post-content ">
-        <h3 id="什么是Hexo？"><a href="#什么是Hexo？" class="headerlink" title="什么是Hexo？"></a>什么是Hexo？</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+        <h3 id="什么是hexo？"><a class="header-anchor" href="#什么是hexo？"></a>什么是Hexo？</h3>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <p>在尝试过诸如WordPress这些博客系统后，觉得这些系统都太笨重了，直到看见了Hexo，刚好满足我的需求，配上Nginx的话甚好。</p>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><blockquote>
+<h3 id="环境准备"><a class="header-anchor" href="#环境准备"></a>环境准备</h3>
+<blockquote>
 <p>笔者在Windows10以及CentOS7上已验证此搭建在此环境可用。</p>
 </blockquote>
-<p>请确保你已经有一个<strong><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></strong>或<strong><a href="https://gitee.com/" target="_blank" rel="noopener">Gitee</a></strong>的账号。</p>
+<p>请确保你已经有一个**<a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a><strong>或</strong><a href="https://gitee.com/" rel="external nofollow noopener noreferrer" target="_blank">Gitee</a>**的账号。</p>
 <p>搭建之前请务必保证你已经安装了<strong>Node.js</strong>和<strong>Git</strong>，如未安装请参考：</p>
-<h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><ul>
-<li>Windows：下载并安装 <a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">Git</a></li>
-<li>Mac：使用 Homebrew, MacPorts : <code>brew install git</code>;或下载 <a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">安装程序</a> 安装</li>
+<h4 id="安装git"><a class="header-anchor" href="#安装git"></a>安装Git</h4>
+<ul>
+<li>Windows：下载并安装 <a href="https://github.com/waylau/git-for-win" rel="external nofollow noopener noreferrer" target="_blank">Git</a></li>
+<li>Mac：使用 Homebrew, MacPorts : <code>brew install git</code>;或下载 <a href="http://sourceforge.net/projects/git-osx-installer/" rel="external nofollow noopener noreferrer" target="_blank">安装程序</a> 安装</li>
 <li>Linux (Fedora, Red Hat, CentOS) : <code>sudo yum install git-core</code></li>
 <li>Linux (Ubuntu, Debian) : <code>sudo apt-get install git-core</code></li>
 </ul>
 <blockquote>
-<p>对于Windows用户来说，安装Git For Windows时，请勾选Add to PATH选项。<br>另外，也可以使用Git Bash，这是git for windows自带的一组程序，提供了Linux风格的shell。打开它的方法很简单，在任意位置单击右键，选择“Git Bash Here”即可。由于Hexo的很多操作都涉及到命令行，可以考虑始终使用Git Bash来进行操作。</p>
+<p>对于Windows用户来说，安装Git For Windows时，请勾选Add to PATH选项。<br>
+另外，也可以使用Git Bash，这是git for windows自带的一组程序，提供了Linux风格的shell。打开它的方法很简单，在任意位置单击右键，选择“Git Bash Here”即可。由于Hexo的很多操作都涉及到命令行，可以考虑始终使用Git Bash来进行操作。</p>
 </blockquote>
-<h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><ul>
-<li>Windows : 下载并安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
-<li>Mac : 下载并安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
-<li>Linux : 初学者建议直接安装 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>，老司机建议使用<a href="https://github.com/creationix/nvm/blob/master/README.md" target="_blank" rel="noopener">NVM</a>管理Node版本</li>
+<h4 id="安装node-js"><a class="header-anchor" href="#安装node-js"></a>安装Node.js</h4>
+<ul>
+<li>Windows : 下载并安装 <a href="https://nodejs.org/" rel="external nofollow noopener noreferrer" target="_blank">Node.js</a></li>
+<li>Mac : 下载并安装 <a href="https://nodejs.org/" rel="external nofollow noopener noreferrer" target="_blank">Node.js</a></li>
+<li>Linux : 初学者建议直接安装 <a href="https://nodejs.org/en/download/" rel="external nofollow noopener noreferrer" target="_blank">Node.js</a>，老司机建议使用<a href="https://github.com/creationix/nvm/blob/master/README.md" rel="external nofollow noopener noreferrer" target="_blank">NVM</a>管理Node版本</li>
 </ul>
 <p>安装后可以通过命令行检查npm以及git命令是否可用。</p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>使用NPM安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.vinlic.com/p/50211/" target="_blank" rel="noopener">npm安装速度慢时可以考虑配置npm源为淘宝</a></p>
+<h3 id="安装hexo"><a class="header-anchor" href="#安装hexo"></a>安装Hexo</h3>
+<p>在命令行使用NPM安装Hexo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>npm安装速度慢？<a href="/p/50211/" target="_blank">试试配置npm镜像源为淘宝</a></p>
+<h3 id="初始化hexo"><a class="header-anchor" href="#初始化hexo"></a>初始化Hexo</h3>
+<p>在安装后需要建立Hexo项目，先选择一个存放Hexo项目的路径位置，在这个路径下运行<code>hexo init</code>命令初始化Hexo项目，这里假设项目名称为Test。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo init Test</span><br></pre></td></tr></table></figure>
+<p>等待初始化完成后出现 <code>INFO Start blogging with Hexo!</code> 即成功。</p>
+<p>接着进入Test目录运行 <code>npm install</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd Test</span><br><span class="line"><span class="meta">$</span> npm install</span><br></pre></td></tr></table></figure>
+<p>如果不出差错文件夹会看到以下目录。</p>
+<img src="/img/loading.png" data-original="/p/31846/1.jpg" title="[Hexo项目目录]">
+<h3 id="配置hexo"><a class="header-anchor" href="#配置hexo"></a>配置Hexo</h3>
 
         
             <div class="donate-container">
@@ -186,7 +201,7 @@
 
         
         <li>
-            <a target="_blank"  href="https://github.com/Vinlic">
+            <a target="_blank" href="https://github.com/Vinlic" rel="external nofollow noopener noreferrer">
                             <span class="fa-stack fa-lg">
                                 <i class="iconfont icon-github"></i>
                             </span>
@@ -201,22 +216,22 @@
     <p>
         <span>/</span>
         
-        <span><a href="http://www.vinlic.com" target="_blank">Vinlic官网</a></span>
+        <span><a href="http://www.vinlic.com" target="_blank" rel="external nofollow noopener noreferrer">Vinlic官网</a></span>
         <span>/</span>
         
-        <span><a href="http://zhangcold.gitee.io" target="_blank">zhangcold</a></span>
+        <span><a href="http://zhangcold.gitee.io" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
         <span>/</span>
         
     </p>
     
     <p>
-        Created By <a href="https://hexo.io/"  target="_blank">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud"  target="_blank">AirCloud</a></p>
+        Created By <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="external nofollow noopener noreferrer">AirCloud</a></p>
 </footer>
 
 
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":100,"height":250},"mobile":{"show":false}});</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+<script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script></body>
 
 <script>
     // We expose some of the variables needed by the front end
