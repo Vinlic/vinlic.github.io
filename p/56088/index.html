@@ -11,7 +11,7 @@
 
     <title>
         
-        给你的博客加只猫 - Vinlic的博客 | Vinlic Blog
+        给Hexo博客加只看板猫 - Vinlic的博客 | Vinlic Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#效果"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备"><span class="toc-text">准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li></ol>
 </div>
     
 </div>
@@ -119,18 +119,43 @@
 
 <div class="post-container">
     <div class="post-title">
-        给你的博客加只猫
+        给Hexo博客加只看板猫
     </div>
 
     <div class="post-meta">
         <span class="attr">发布于：<span>2018-08-03 10:29:14</span></span>
         
+        <span class="attr">标签：/
         
+        <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Live2D" title="Live2D">Live2D</a>
+        <span>/</span>
+        
+        
+        </span>
 
 
     </div>
     <div class="post-content ">
-        
+        <h3 id="效果"><a class="header-anchor" href="#效果"></a>效果</h3>
+<img src="/img/loading.png" data-original="/p/56088/1.gif" title="[看板猫]">
+<h3 id="准备"><a class="header-anchor" href="#准备"></a>准备</h3>
+<p>在安装之前先把模型包克隆到本地，进入找到白猫的文件夹，白猫的模型名字是 <code>live2d-widget-model-tororo</code> ，你也可以选择其他模型。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://github.com/xiazeyu/live2d-widget-models </span><br><span class="line"><span class="meta">$</span> cd live2d-widget-models/packages</span><br></pre></td></tr></table></figure>
+<p>在Hexo项目目录建立一个文件夹： <code>live2d_models</code></p>
+<p>将在模型文件夹里的 <code>live2d-widget-model-tororo</code> 文件夹复制到 <code>live2d_models</code> 中，并改名为 <code>tororo</code> 。</p>
+<p>模型准备完毕。</p>
+<h3 id="安装"><a class="header-anchor" href="#安装"></a>安装</h3>
+<p><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md" rel="external nofollow noopener noreferrer" target="_blank">hexo-helper-live2d</a> 是一个借助Live2D技术在网页展示伪3D形象的Hexo插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install hexo-helper-live2d --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a class="header-anchor" href="#配置"></a>配置</h3>
+<p>向Hexo的 <code>config.yml</code> 添加以下配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span>    <span class="comment"># 是否开启插件</span></span><br><span class="line">  scriptFrom: <span class="built_in">local</span>    <span class="comment"># 默认local，也可以使用jsdelivr CDN：jsdelivr</span></span><br><span class="line">  pluginRootPath: live2dw/    <span class="comment"># 插件在站点上的根目录（默认）</span></span><br><span class="line">  pluginJsPath: lib/    <span class="comment"># 脚本文件相对与插件根目录路径（默认）</span></span><br><span class="line">  pluginModelPath: assets/    <span class="comment"># 模型文件相对与插件根目录路径（默认）</span></span><br><span class="line">  tagMode: <span class="literal">false</span>    <span class="comment"># 标签模式, false是全站都显示，true是只有使用标签才生效，具体请查看文档</span></span><br><span class="line">  debug: <span class="literal">false</span>    <span class="comment"># 调试, 是否在控制台输出日志</span></span><br><span class="line">  model:</span><br><span class="line">    use: tororo    <span class="comment"># 模型名称，刚刚在live2d_models内的文件夹名称</span></span><br><span class="line">  display:</span><br><span class="line">    position: left    <span class="comment"># 显示位置，left为左边，right为右边</span></span><br><span class="line">    width: 150    <span class="comment"># 显示宽度</span></span><br><span class="line">    height: 300    <span class="comment"># 显示高度</span></span><br><span class="line">  mobile:</span><br><span class="line">    show: <span class="literal">false</span>    <span class="comment"># 手机端是否显示</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">标签模式：在你想插入的页面的 &lt;/body&gt; 前插入 &#123;&#123; live2d() &#125;&#125; 或 &lt;%- live2d() %&gt;。 将配置中的 tagMode 设置为 true，然后插件将只会在拥有live2d标签的页面出现。</span><br></pre></td></tr></table></figure>
+<p>配置完毕后就可以开始使用啦😝。</p>
+
         
             <div class="donate-container">
     <div class="donate-button">
@@ -149,6 +174,11 @@
     </div>
 </div>
 
+<div id="totop">
+	<a href="javascript:scroll(0,0)">
+		<img src="/img/totop.png">
+	</a>
+</div>
 
 <footer class="footer">
     <ul class="list-inline text-center">
@@ -179,7 +209,7 @@
         <span><a href="https://www.vinlic.com/" target="_blank" rel="external nofollow noopener noreferrer">Vinlic官网</a></span>
         <span>/</span>
         
-        <span><a href="http://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
+        <span><a href="https://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
         <span>/</span>
         
     </p>
@@ -191,7 +221,7 @@
 
 
 
-<script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script></body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.0.5/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 <script>
     // We expose some of the variables needed by the front end
@@ -205,7 +235,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: '给你的博客加只猫',
+        id: '给Hexo博客加只看板猫',
         owner: 'Vinlic',
         repo: 'vinlic.github.io',
         oauth: {

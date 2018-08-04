@@ -11,7 +11,7 @@
 
     <title>
         
-        Hexo博客链接持久化方案 - Vinlic的博客 | Vinlic Blog
+        Hexo博客链接唯一化方案，解决中文链接问题 - Vinlic的博客 | Vinlic Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#文章链接需要唯一化"><span class="toc-text">文章链接需要唯一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hexo-abbrlink"><span class="toc-text">安装hexo-abbrlink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置插件"><span class="toc-text">配置插件</span></a></li></ol>
 </div>
     
 </div>
@@ -119,18 +119,38 @@
 
 <div class="post-container">
     <div class="post-title">
-        Hexo博客链接持久化方案
+        Hexo博客链接唯一化方案，解决中文链接问题
     </div>
 
     <div class="post-meta">
         <span class="attr">发布于：<span>2018-08-03 11:09:24</span></span>
         
+        <span class="attr">标签：/
         
+        <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+        <span>/</span>
+        
+        
+        </span>
 
 
     </div>
     <div class="post-content ">
-        
+        <h3 id="文章链接需要唯一化"><a class="header-anchor" href="#文章链接需要唯一化"></a>文章链接需要唯一化</h3>
+<p>Hexo博客默认是将文章标题用于文章URL的，这会存在一个严重的问题，当文章标题使用中文时，URL中也会使用中文。导致以下问题：</p>
+<p>1.中文URL复制起来被转码后很长，就像这种又臭又长：<code>/2018/07/24/%E6%88%91%EF%BC%8C%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9AIT%E4%BA%BA%E7%9A%84%E7%94%9F%E6%B6%AF%E5%9B%9E%E9%A1%BE/#%E4%BA%BA%E7%94%9F%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98</code></p>
+<p>2.修改文章标题或发布时间，文章URL都会改变，不利于搜索引擎收录和分享</p>
+<h3 id="安装hexo-abbrlink"><a class="header-anchor" href="#安装hexo-abbrlink"></a>安装hexo-abbrlink</h3>
+<p><a href="https://github.com/rozbo/hexo-abbrlink" rel="external nofollow noopener noreferrer" target="_blank">hexo-abbrlink</a> 是一个实现链接唯一化的插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置插件"><a class="header-anchor" href="#配置插件"></a>配置插件</h3>
+<p>修改Hexo的 <code>config.yml</code> 内的 <code>permalink</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink/    <span class="comment"># posts可自行更换</span></span><br></pre></td></tr></table></figure>
+<p>建议permalink后面跟着的内容最好不要超过两个斜杠，影响爬虫爬取，因为一般搜索引擎爬虫不爬取深度超过三层的内容。</p>
+<p>向 <code>config.yml</code> 添加以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment"># 算法 crc16(默认) 或 crc32</span></span><br><span class="line">  rep: hex    <span class="comment"># 进制：dec(默认) 或 hex</span></span><br></pre></td></tr></table></figure>
+<p>不同的算法和禁止组合会得到不同的链接，下面提供了参考，如何选择就看需要了，需要注意的是使用 <code>crc16</code> 算法的文章数上限是 <code>65535</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">crc16 &amp; hex</span><br><span class="line">https://blog.vinlic.com/posts/66c8.html</span><br><span class="line"></span><br><span class="line">crc16 &amp; dec</span><br><span class="line">https://blog.vinlic.com/posts/65535.html</span><br><span class="line"></span><br><span class="line">crc32 &amp; hex</span><br><span class="line">https://blog.vinlic.com/posts/8ddf18fb.html</span><br><span class="line"></span><br><span class="line">crc32 &amp; dec</span><br><span class="line">https://blog.vinlic.com/posts/1690090958.html</span><br></pre></td></tr></table></figure>
         
             <div class="donate-container">
     <div class="donate-button">
@@ -149,6 +169,11 @@
     </div>
 </div>
 
+<div id="totop">
+	<a href="javascript:scroll(0,0)">
+		<img src="/img/totop.png">
+	</a>
+</div>
 
 <footer class="footer">
     <ul class="list-inline text-center">
@@ -179,7 +204,7 @@
         <span><a href="https://www.vinlic.com/" target="_blank" rel="external nofollow noopener noreferrer">Vinlic官网</a></span>
         <span>/</span>
         
-        <span><a href="http://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
+        <span><a href="https://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
         <span>/</span>
         
     </p>
@@ -191,7 +216,7 @@
 
 
 
-<script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script></body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.0.5/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 <script>
     // We expose some of the variables needed by the front end
@@ -205,7 +230,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'Hexo博客链接持久化方案',
+        id: 'Hexo博客链接唯一化方案，解决中文链接问题',
         owner: 'Vinlic',
         repo: 'vinlic.github.io',
         oauth: {

@@ -11,7 +11,7 @@
 
     <title>
         
-        让你的Hexo博客使用上HTTPS - Vinlic的博客 | Vinlic Blog
+        GitHub/码云 Page配置自定义域名和HTTPS支持 - Vinlic的博客 | Vinlic Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#none"><span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加cname解析"><span class="toc-text">添加CNAME解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github配置自定义域名"><span class="toc-text">GitHub配置自定义域名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方式1"><span class="toc-text">方式1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方式2"><span class="toc-text">方式2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#码云配置自定义域名"><span class="toc-text">码云配置自定义域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github开启https"><span class="toc-text">GitHub开启HTTPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#码云开启https"><span class="toc-text">码云开启HTTPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用cloudflare实现https"><span class="toc-text">使用Cloudflare实现HTTPS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册账号"><span class="toc-text">注册账号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改dns服务器"><span class="toc-text">修改DNS服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开启ssl加密"><span class="toc-text">开启SSL加密</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -119,7 +119,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        让你的Hexo博客使用上HTTPS
+        GitHub/码云 Page配置自定义域名和HTTPS支持
     </div>
 
     <div class="post-meta">
@@ -139,7 +139,71 @@
 
     </div>
     <div class="post-content ">
-        
+        <h3 id="none"><a class="header-anchor" href="#none"></a></h3>
+<p>在此之前，你必须有一个可用的域名，如： <code>www.example.com</code></p>
+<h3 id="添加cname解析"><a class="header-anchor" href="#添加cname解析"></a>添加CNAME解析</h3>
+<p>到你的域名注册商那里添加一条CNAME解析记录，这里是以阿里云域名解析为例。</p>
+<p>记录值为你的Page地址，例如：<code>xxx.github.io</code> 或 <code>xxx.gitee.io</code>，主机记录是你的域名前缀，假设域名是 <code>www.example.com</code> 那么主机记录就是 <code>www</code> 。</p>
+<img src="/img/loading.png" data-original="/p/50505/6.jpg" title="CNAME解析记录">
+<h3 id="github配置自定义域名"><a class="header-anchor" href="#github配置自定义域名"></a>GitHub配置自定义域名</h3>
+<p>添加完解析后就需要配置自定义域名了，GitHub有两种配置方式：</p>
+<h4 id="方式1"><a class="header-anchor" href="#方式1"></a>方式1</h4>
+<p><strong>打开Page项目 -&gt; Settings -&gt; GitHub Pages -&gt; 填写Custom domain -&gt; Save</strong></p>
+<img src="/img/loading.png" data-original="/p/50505/4.jpg" title="GitHub Page">
+<h4 id="方式2"><a class="header-anchor" href="#方式2"></a>方式2</h4>
+<p>向Page项目根目录上传一个CNAME文件，文件内容是你自定义的域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.example.com</span><br></pre></td></tr></table></figure>
+<p>更多内容请参考：<a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/" rel="external nofollow noopener noreferrer" target="_blank">为GitHub Pages站点添加或删除自定义域名</a></p>
+<p>如果是使用Hexo搭建的博客，可以把CNAME文件放入 <code>source</code> 文件夹中，这样每次生成都会自动把CNAME文件放到public文件夹。</p>
+<h3 id="码云配置自定义域名"><a class="header-anchor" href="#码云配置自定义域名"></a>码云配置自定义域名</h3>
+<p>码云对配置自定义域名是收费的，但提供了一个月的Pro试用资格，可以试用一下，或者付费（我觉得没有必要），试用步骤如下：</p>
+<p>试用方式：<strong>打开Page项目 -&gt; 服务 -&gt; Gitee Pages -&gt; 右侧点击试用一个月Pro版本</strong></p>
+<p>升级后接下来只需填写自己的并启动域名即可：</p>
+<img src="/img/loading.png" data-original="/p/50505/7.jpg" title="码云 Page">
+<p>更多内容请参考：<a href="http://git.mydoc.io/?t=154714" rel="external nofollow noopener noreferrer" target="_blank">码云Pages使用帮助</a></p>
+<h3 id="github开启https"><a class="header-anchor" href="#github开启https"></a>GitHub开启HTTPS</h3>
+<p>GitHub Page项目默认的地址已经是自带HTTPS无需配置，如： <code>https://xxx.github.io</code> ，以下是自定义域名开启HTTPS方法。</p>
+<p>开启方式：<strong>打开Page项目 -&gt; Settings -&gt; GitHub Pages -&gt; 勾选Enforce HTTPS</strong></p>
+<img src="/img/loading.png" data-original="/p/50505/3.jpg" title="GitHub Page">
+<p>如果是灰色不可勾选，请等待几天，可能证书还没发放。</p>
+<p>开启后会显示有https协议的URL：</p>
+<img src="/img/loading.png" data-original="/p/50505/5.jpg" title="GitHub Page">
+<p>生效后，你的自定义域名就可以使用HTTPS访问了，由于浏览器有缓存可能不会及时生效，可以尝试清除浏览器缓存或者使用其他浏览器访问测试。😀</p>
+<p>了解更多：<a href="https://help.github.com/articles/securing-your-github-pages-site-with-https/" rel="external nofollow noopener noreferrer" target="_blank">GitHub官方开启HTTPS文档</a></p>
+<h3 id="码云开启https"><a class="header-anchor" href="#码云开启https"></a>码云开启HTTPS</h3>
+<p>码云用户默认的Page地址已经是自带HTTPS无需配置，如： <code>https://xxx.gitee.io</code> ，以下是自定义域名开启HTTPS方法。</p>
+<p>请确保你已经在使用码云Pages Pro版本，因为只有这个版本才支持自定义域名配置HTTPS，如果还未升级请参考<a href="./#%E7%A0%81%E4%BA%91%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D">码云配置自定义域名</a>。</p>
+<p>首先需要申请一个SSL证书才能配置，可以从 <a href="https://freessl.org/?from=gitee" rel="external nofollow noopener noreferrer" target="_blank">FreeSSL.org</a> 免费申请SSL证书，申请方法请参照该网站的说明，申请得到证书后就可以进行下一步的配置证书了。</p>
+<p>配置方式：<strong>打开Page项目 -&gt; 服务 -&gt; Gitee Pages -&gt; 配置域名证书 -&gt; 填写证书、私钥文件内容 -&gt; 提交</strong></p>
+<p>生效后，你的自定义域名就可以使用HTTPS访问了，由于浏览器有缓存可能不会及时生效，可以尝试清除浏览器缓存或者使用其他浏览器访问测试。😀</p>
+<h3 id="使用cloudflare实现https"><a class="header-anchor" href="#使用cloudflare实现https"></a>使用Cloudflare实现HTTPS</h3>
+<p>如果以上平台无法提供HTTPS服务时，你也可以采用以下解决方案。</p>
+<p>在这之前请确保已经完成了 <a href="./#%E6%B7%BB%E5%8A%A0CNAME%E8%A7%A3%E6%9E%90">添加CNAME解析</a></p>
+<p>让 <a href="https://www.cloudflare.com/" rel="external nofollow noopener noreferrer" target="_blank">Cloudflare</a> 代理SSL实现HTTPS。</p>
+<blockquote>
+<p>需要特别说明的是，这个操作其实是把你域名的DNS解析服务器换成Cloudflare的DNS解析服务器，域名解析工作改由Cloudflare来完成，达到代理SSL的目的，实际上不会啥影响，如果你不希望更换，可以放弃使用Cloudflare。</p>
+</blockquote>
+<h4 id="注册账号"><a class="header-anchor" href="#注册账号"></a>注册账号</h4>
+<p>进入 <a href="https://dash.cloudflare.com/sign-up" rel="external nofollow noopener noreferrer" target="_blank">Cloudflare账号注册</a></p>
+<img src="/img/loading.png" data-original="/p/50505/1.jpg" title="账号注册">
+<p>注册完成后需要填写域名，比如我的自定义域名是 <code>blog.vinlic.com</code> ，就填这个</p>
+<img src="/img/loading.png" data-original="/p/50505/2.jpg" title="填写域名">
+<p>接下来Cloudflare会开始查询此域名的DNS记录，也就是把你之前这个域名设置的解析记录全部导入到这边，进入下一步后它们会让你选择一个方案，选择免费（Free）确认就好了。</p>
+<p>确认之后，会显示当前已查询到的DNS记录，直接下一步。</p>
+<h4 id="修改dns服务器"><a class="header-anchor" href="#修改dns服务器"></a>修改DNS服务器</h4>
+<p>在上一步之后Cloudflare会提供两个新的DNS服务器地址，将它们复制起来。</p>
+<img src="/img/loading.png" data-original="/p/50505/8.jpg" title="修改DNS">
+<p>接着到域名注册商那修改DNS服务器，这里截图的是阿里云DNS修改。</p>
+<img src="/img/loading.png" data-original="/p/50505/9.jpg" title="修改DNS">
+<img src="/img/loading.png" data-original="/p/50505/10.jpg" title="修改DNS">
+<p>修改完DNS后，回到Cloudflare点击继续进入主界面。</p>
+<p>主界面应该显示 <code>Status: Website not active</code>，这时需要等待DNS生效，一般1个小时左右就能生效了，如果超过一天还未生效建议查看是否正确修改DNS，生效后再进入Cloudflare主界面，点击 <code>Recheck Nameservers</code> 重新检查DNS服务器，如果已生效，Status就会显示 <code>Active</code> 并显示为绿色，这样就修改成功了。</p>
+<img src="/img/loading.png" data-original="/p/50505/11.jpg" title="修改DNS">
+<h4 id="开启ssl加密"><a class="header-anchor" href="#开启ssl加密"></a>开启SSL加密</h4>
+<p>点击Crypto功能，并设置SSL为 <code>Full</code> 。</p>
+<img src="/img/loading.png" data-original="/p/50505/12.jpg" title="开启SSL">
+<p>生效后，你的自定义域名就可以使用HTTPS访问了😀</p>
+
         
             <div class="donate-container">
     <div class="donate-button">
@@ -158,6 +222,11 @@
     </div>
 </div>
 
+<div id="totop">
+	<a href="javascript:scroll(0,0)">
+		<img src="/img/totop.png">
+	</a>
+</div>
 
 <footer class="footer">
     <ul class="list-inline text-center">
@@ -188,7 +257,7 @@
         <span><a href="https://www.vinlic.com/" target="_blank" rel="external nofollow noopener noreferrer">Vinlic官网</a></span>
         <span>/</span>
         
-        <span><a href="http://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
+        <span><a href="https://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
         <span>/</span>
         
     </p>
@@ -200,7 +269,7 @@
 
 
 
-<script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script></body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.0.5/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 <script>
     // We expose some of the variables needed by the front end
@@ -214,7 +283,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: '让你的Hexo博客使用上HTTPS',
+        id: 'GitHub/码云 Page配置自定义域名和HTTPS支持',
         owner: 'Vinlic',
         repo: 'vinlic.github.io',
         oauth: {
