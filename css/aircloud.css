@@ -1199,6 +1199,11 @@ pre .javascript .function {
   text-indent: 0;
 }
 
+.gitment-container img {
+  max-width: auto !important;
+  margin: initial !important;
+}
+
 .toc-fixed::-webkit-scrollbar {
   background: transparent;
 }
