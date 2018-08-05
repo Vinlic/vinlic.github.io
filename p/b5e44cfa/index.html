@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vinlic-陈炜宾的个人博客">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        使用超快的Android模拟器——Genymotion - Vinlic的博客 | Vinlic Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 问题解决之道，即是正视自己 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>一个多梦的制杖</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊要求"><span class="toc-text">特殊要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装genymotion"><span class="toc-text">安装Genymotion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加模拟器"><span class="toc-text">添加模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置adb"><span class="toc-text">配置ADB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加arm支持"><span class="toc-text">添加ARM支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arm程序移植"><span class="toc-text">ARM程序移植</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 问题解决之道，即是正视自己 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        使用超快的Android模拟器——Genymotion
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-04 23:56:19</span></span>
+        
+        
+
+
+    </div>
+    <div class="post-content ">
+        <h3 id="简介"><a class="header-anchor" href="#简介"></a>简介</h3>
+<p>Genymotion是一款强悍的跨平台Android模拟器，启动速度堪比真机调试，它基于Oracle VM VirtualBox，支持GPS、重力感应、光、温度等诸多传感器，并支持OpenGL 3D加速、电池电量模拟，跨平台方面能够运行在Windows、Linux、Mac系统。</p>
+<p>之所以这么快我认为是因为Genymotion使用x86架构并进行了诸多优化，使得性能大幅提升，开机和打开应用最快仅需几秒，是时候摆脱开机要好几分钟的AVD了。</p>
+<h3 id="特殊要求"><a class="header-anchor" href="#特殊要求"></a>特殊要求</h3>
+<p>需要特别注意的是：Genymotion要求你电脑的CPU支持VT-X或AMD-V技术，它们分别是Intel或AMD的CPU所支持的虚拟化技术名称，也就是说需要到主板BIOS开启CPU虚拟化技术才能使用Genymotion，不然启动模拟器时会报错。如何开启请自行百度自己电脑主板的BIOS如何开启CPU的虚拟化技术，可以先下载一个 <code>securable.exe</code> ，它可以帮助你识别你的CPU是否支持虚拟化技术，如果不支持则无法开启使用。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/5.jpg" title="虚拟化技术支持">
+<h3 id="安装genymotion"><a class="header-anchor" href="#安装genymotion"></a>安装Genymotion</h3>
+<p>首先进入 <a href="https://www.genymotion.com/account/create/" rel="external nofollow noopener noreferrer" target="_blank">Genymotion用户注册页面</a> 填写和选择相关信息后点击 CREATE ACCOUNT。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/1.jpg" title="注册Genymotion">
+<p>点击后创建后，它们会向你填写的邮箱发送一封激活账户邮件，去你的邮箱进入激活邮件点击Click here链接完成激活</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/2.jpg" title="注册Genymotion">
+<img src="/img/loading.png" data-original="/p/b5e44cfa/3.jpg" title="激活Genymotion">
+<p>接下来我们点击下面那个不起眼的 <code>Download Genymotion for personal use</code> 链接，意思是下载仅个人使用的Genymotion（个人免费），如果你打算使用它用于商业产品开发则需要点击购买按钮，我们只是作为个人开发测试使用就使用免费的吧，点击后会进入下载页面。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/4.jpg" title="下载Genymotion">
+<p>由于博主是在Windows系统安装，所以这里是下载Windows版本的。</p>
+<p>如果你还没有安装VirtualBox，可以选择第一个Download，这个是附带了VirtualBox的Genymotion安装包</p>
+<p>如果已安装直接点击第二个Download即可，但是如果在使用Genymotion时出现识别不到VirtualBox或者启动模拟器时报错，请尝试更换到 <a href="https://download.virtualbox.org/virtualbox/5.2.6/VirtualBox-5.2.6-120293-Win.exe" rel="external nofollow noopener noreferrer" target="_blank">VirtualBox 5.2.6</a>，因为某些版本的VirtualBox可能和Genymotion会有兼容性问题。</p>
+<p>安装完毕后，桌面上应该会出现一个Genymotion和Genymotion Shell，我们暂时只使用Genymotion。</p>
+<p>进入之后可能会要求登录，直接使用刚刚创建的账号登录即可，无需注册许可。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/6.jpg" title="安装Genymotion">
+<h3 id="添加模拟器"><a class="header-anchor" href="#添加模拟器"></a>添加模拟器</h3>
+<p>点击导航栏的 <code>Add</code> 按钮，弹出选择设备窗口。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/7.jpg" title="添加模拟器">
+<p>选择你希望运行的模拟器的Android版本并点击 <code>Next</code>。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/8.jpg" title="添加模拟器">
+<p>这里可以浏览此模拟器默认的系统信息，也可以修改模拟器名字或者直接默认并点击 <code>Next</code>。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/9.jpg" title="添加模拟器">
+<p>接下来只需要等待模拟器所需相关资源下载完成后点击 <code>Finish</code>。</p>
+<p>这个时候就会发现模拟器列表多出一个模拟器，双击模拟器就可以启动了。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/10.jpg" title="添加模拟器">
+<img src="/img/loading.png" data-original="/p/b5e44cfa/11.jpg" title="启动模拟器">
+<p>启动速度可谓非常快了，从弹出模拟器窗口到系统启动仅用了6秒。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/12.gif" title="启动模拟器">
+<h3 id="配置adb"><a class="header-anchor" href="#配置adb"></a>配置ADB</h3>
+<p>Genymotion默认的工具包是没有提供ADB支持的，想要使用ADB，就得配置为本机的Android SDK。</p>
+<p>还没下载Android SDK？<a href="https://dl.google.com/android/installer_r24.4.1-windows.exe?utm_source=androiddevtools&amp;utm_medium=website" rel="external nofollow noopener noreferrer" target="_blank">点击下载Android SDK 24.4.1</a> （强烈建议不要用迅雷下载，为了避免再出现类似 <a href="https://www.zhihu.com/question/35721299" rel="external nofollow noopener noreferrer" target="_blank">XcodeGhost</a> 事件）</p>
+<p>下载完成安装后，进入Android SDK安装目录，打开 <code>SDK Manager</code>，确保这三个工具都已安装，如果未安装请选中它们并点击右下角的 <code>Install packages</code> 同意协议并安装，如果安装工具缓慢或失败请百度解决。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/15.jpg" title="配置ADB">
+<p>打开Genymotion导航栏的 <code>Setting</code> 并切换到 <code>ADB</code> 选项卡，改成 <code>Use custom Android SDK tools</code> 。</p>
+<p>点击 <code>Browse</code> 找到Android SDK安装目录（如 <code>android-sdk-windows</code> 文件夹），选择此文件夹，如果下面显示 <code>Android SDK tools found successfully</code> 就成功了，如果显示错误请尝试搜索错误内容自行解决问题。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/16.jpg" title="配置ADB">
+<p>使用ADB需要配置Android SDK环境变量，你可能已经配置过，如果还未配置此环境变量请查看此教程：<a href="https://jingyan.baidu.com/article/15622f2434bc5cfdfcbea51c.html" rel="external nofollow noopener noreferrer" target="_blank">如何配置Android SDK环境变量</a></p>
+<p>配置完毕后请打开 <code>cmd</code> 输入 <code>adb</code> 命令回车运行，查看是否可用，可用即为配置成功。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/17.jpg" title="配置ADB">
+<p>然后重启一下模拟器。</p>
+<h3 id="添加arm支持"><a class="header-anchor" href="#添加arm支持"></a>添加ARM支持</h3>
+<p>简介部分已经介绍过了，Genymotion是使用x86架构的模拟器，虽然变快了，但是并不是一劳永逸的，Genymotion从2.0版本已经移除了ARM支持库，因此无法安装在ARM环境下运行的APP，因此我们需要把ARM支持库给安装回来。</p>
+<p>下载 <a href="https://github.com/Vinlic/blog/raw/master/files/Genymotion-ARM-Translation_v2.0.zip" rel="external nofollow noopener noreferrer" target="_blank">Genymotion-ARM-Translation_v2.0.zip</a></p>
+<blockquote>
+<p>下载后注意不要解压！</p>
+</blockquote>
+<p>将压缩包拖入开启的Android模拟器界面。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/13.jpg" title="安装ARM支持库">
+<p>拖拽后会有两种情况：</p>
+<p>第一种：弹出安装询问弹框，这种情况直接点击 <code>OK</code> 就会进行安装，接着会询问是否重启模拟器点击 <code>OK</code>。</p>
+<p>第二种：只出现 <code>File successfully copied to:/sdcard/Download</code> 弹框，这时候就需要手动进行安装了，博主遇到的就是这种情况。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/14.jpg" title="安装ARM支持库">
+<p>先手动上传压缩包，启动 <code>cmd</code> 进入刚刚下载的压缩包的文件夹，并输入 <code>adb push Genymotion-ARM-Translation_v2.0.zip /sdcard/Download</code> 命令运行，以下演示的命令是在博主电脑上的，压缩包放在桌面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Vinlic-PC&gt; <span class="built_in">cd</span> Desktop </span><br><span class="line">C:\Users\Vinlic-PC\Desktop&gt; adb push Genymotion-ARM-Translation_v2.0.zip /sdcard/Download</span><br></pre></td></tr></table></figure>
+<p>等待上传完成后运行 <code>adb shell flash-archive.sh /sdcard/Download/Genymotion-ARM-Translation_v2.0.zip</code> 命令，安装ARM支持库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Vinlic-PC\Desktop&gt; adb shell flash-archive.sh /sdcard/Download/Genymotion-ARM-Translation_v2.0.zip</span><br></pre></td></tr></table></figure>
+<p>安装成功后就可以重启模拟器了。</p>
+<img src="/img/loading.png" data-original="/p/b5e44cfa/18.jpg" title="安装ARM支持库">
+<p>重启完成后就可以自由安装了。</p>
+<h3 id="arm程序移植"><a class="header-anchor" href="#arm程序移植"></a>ARM程序移植</h3>
+<p>APP安装虽然是解决了，但是对于一些在命令行运行的基于arm架构的binary文件时会出现 <code>cannot execute binary file</code> 等类似问题。</p>
+<p>针对这类问题，一般会采用交叉编译移植的方法。</p>
+<p>具体操作流程请看：<a href="http://localhost:4000/p/9cbe3a39/" rel="external nofollow noopener noreferrer" target="_blank">通过交叉编译移植基于arm平台程序到x86平台</a></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        
+    </div>
+    <div id="comment-container"></div>
+    <div id="totop">
+	<a href="javascript:scroll(0,0)">
+		<img src="/img/totop.png">
+	</a>
+</div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/Vinlic" rel="external nofollow noopener noreferrer">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.vinlic.com/" target="_blank" rel="external nofollow noopener noreferrer">Vinlic官网</a></span>
+        <span>/</span>
+        
+        <span><a href="https://zhangcold.gitee.io/" target="_blank" rel="external nofollow noopener noreferrer">zhangcold</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        Created By <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="external nofollow noopener noreferrer">AirCloud</a></p>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.0.5/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":110,"height":260},"mobile":{"show":false}});</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '使用超快的Android模拟器——Genymotion',
+        owner: 'Vinlic',
+        repo: 'vinlic.github.io',
+        oauth: {
+            client_id: 'ec44ee167ef2ea0f98f4',
+            client_secret: '5031b6a9158c6e77b4467004189ddb00517c44a8',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+<script>
+    //百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?99044ae0ec77ed1fa012b7570ce62e4a";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</html>
