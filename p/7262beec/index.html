@@ -90,7 +90,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#存在的问题"><span class="toc-text">存在的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询域名ip"><span class="toc-text">查询域名IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改hosts"><span class="toc-text">修改Hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证效果"><span class="toc-text">验证效果</span></a></li></ol>
 </div>
     
 </div>
@@ -140,7 +140,31 @@
 
     </div>
     <div class="post-content ">
-        
+        <h3 id="存在的问题"><a class="header-anchor" href="#存在的问题"></a>存在的问题</h3>
+<p>平时使用 <code>git push</code> 或 <code>git clone</code> GitHub上的库时总会遇上速度慢的问题，特别是存在大文件的时候，只有16kb/s的速度。</p>
+<h3 id="查询域名ip"><a class="header-anchor" href="#查询域名ip"></a>查询域名IP</h3>
+<p>面对这种问题一般可以采用科学上网解决，但是假设因为特殊条件不能科学上网时可以通过修改本机 <code>hosts</code> 解决。</p>
+<p>首先需要了解的是，在进行push或clone操作时慢是因为 <code>github.global.ssl.fastly.net</code> 域名被墙，解决方案就是用 <a href="https://www.ipaddress.com/" rel="external nofollow noopener noreferrer" target="_blank">IPAddress.com</a> 查询出这个域名的IP地址。</p>
+<p>访问 <a href="http://github.global.ssl.fastly.net.ipaddress.com/#ipinfo" rel="external nofollow noopener noreferrer" target="_blank">http://github.global.ssl.fastly.net.ipaddress.com/#ipinfo</a> 即可查询。</p>
+<img src="/img/loading.png" data-original="/p/7262beec/1.jpg" title="查询IP">
+<p>查询到的IP为： <code>151.101.13.194</code> 。</p>
+<p>同时如果你希望顺便提高访问github网站的速度，也可以查询下 <code>github.com</code> 的IP，一起写入 <code>hosts</code>。</p>
+<p>访问 <a href="http://github.global.ssl.fastly.net.ipaddress.com/#ipinfo" rel="external nofollow noopener noreferrer" target="_blank">http://github.com.ipaddress.com/#ipinfo</a> 即可查询。</p>
+<img src="/img/loading.png" data-original="/p/7262beec/2.jpg" title="查询IP">
+<p>查询到的IP为：<code>192.30.253.112</code></p>
+<h3 id="修改hosts"><a class="header-anchor" href="#修改hosts"></a>修改Hosts</h3>
+<p>接下来就需要修改hosts文件了，该文件所在路径是：<code>C:\Windows\System32\drivers\etc\hosts</code></p>
+<p>但是由于权限限制可能没法直接编辑，直接点的方法如下：</p>
+<p>打开 <code>hosts</code> 文件并复制里面的内容</p>
+<p>在桌面新建一个同名 <code>hosts</code> 文件，使用记事本直接打开，然后将复制的内容粘贴进去</p>
+<p>将刚刚查询到的IP和域名写进去，注意IP和域名之间有空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">151.101.185.194 github.global.ssl.fastly.net </span><br><span class="line">192.30.253.112 github.com</span><br></pre></td></tr></table></figure>
+<img src="/img/loading.png" data-original="/p/7262beec/3.jpg" title="修改hosts">
+<p>编辑完后保存 <code>hosts</code> 文件，将这个桌面的 <code>hosts</code> 文件复制到 <code>C:\Windows\System32\drivers\etc\hosts</code> 覆盖掉原来的 <code>hosts</code> 文件，弹出权限询问直接点继续即可。</p>
+<h3 id="验证效果"><a class="header-anchor" href="#验证效果"></a>验证效果</h3>
+<p>完成后，可以尝试 <code>git push</code> 或 <code>git clone</code> 操作，会发现速度从原来的的10+kb/s提速到600kb+以上了，根据网络情况还可以更快，博主提速到了1MB+/s。</p>
+<p>也可以尝试访问 <a href="github.com">github.com</a> 看看访问速度是否有所提升。</p>
+
         
             <div class="donate-container">
     <div class="donate-button">
