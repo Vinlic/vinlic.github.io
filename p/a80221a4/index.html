@@ -150,13 +150,13 @@
 <p>版本：<strong>1.0</strong></p>
 <p>系统要求：<strong>Windows 64位操作系统 + .NET FrameWork 4.5或以上</strong></p>
 <p>Logo（瞎鸡儿画）：</p>
-<img src="/img/loading.png" data-original="/p/undefined/1.png">
+<img src="/img/loading.png" data-original="/p/a80221a4/1.png">
 <h3 id="工具下载"><a class="header-anchor" href="#工具下载"></a>工具下载</h3>
 <p>放在微云</p>
 <p>链接：<a href="https://share.weiyun.com/5JKxBzj" rel="external nofollow noopener noreferrer" target="_blank">https://share.weiyun.com/5JKxBzj</a> 密码：xhkaad</p>
 <p>源码在GitHub（时间紧迫，未经整理）：<a href="https://github.com/Vinlic/Image-Passive-Compresser" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/Vinlic/Image-Passive-Compresser</a></p>
 <h3 id="功能介绍"><a class="header-anchor" href="#功能介绍"></a>功能介绍</h3>
-<img src="/img/loading.png" data-original="/p/undefined/2.png">
+<img src="/img/loading.png" data-original="/p/a80221a4/2.png">
 <p>最基础用法：<a href="./#%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B">使用案例</a></p>
 <p>1.目前支持 <code>jpg</code> <code>png</code> <code>gif</code> 三种主流图片格式的压缩，<code>gif</code>只支持无损压缩。</p>
 <p>2.支持以下过滤功能</p>
@@ -173,14 +173,14 @@
 <p>6.勾选 <code>启动后先压缩文件夹内所有图片</code> ，假设你已经将图片放在准备监视的文件夹了，如果你希望工具启动后将 <code>监视文件夹</code> 内的所有符合过滤条件的图片压缩，请在启动前勾选此选项。需要注意的是，此项和 <code>压缩图片覆盖原图片</code> 一起勾选时需谨慎使用，因为监视和输出文件夹路径一致时将导致原图片被覆盖，如果你希望在这种情况下保留原图片，请不要两项同时勾选。</p>
 <p>7.进入 <code>帮助与日志</code> 可查看运行日志。</p>
 <p>8.几乎所有操作（如启用过滤功能或添加过滤项）都支持在压缩器运行期间启用，无需中途停用压缩器。</p>
-<img src="/img/loading.png" data-original="/p/undefined/3.png">
+<img src="/img/loading.png" data-original="/p/a80221a4/3.png">
 <h3 id="使用案例"><a class="header-anchor" href="#使用案例"></a>使用案例</h3>
 <p>假设当前存在 <code>E:\test</code> 和 <code>E:\test\output</code> 两个文件夹，现在我们需要实现：如果有图片进入 <code>E:\test</code> 则将这些图片压缩输出到 <code>E:\test\output</code> 文件夹，按以下流程操作：</p>
 <p>点击上下 <code>浏览</code> 按钮选择 <code>监视文件夹</code> 和 <code>输出文件夹</code>，两个文件夹路径允许一样，但要注意覆盖问题（默认不覆盖，解决方案参照<a href="./#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">功能介绍</a>）</p>
-<img src="/img/loading.png" data-original="/p/undefined/4.png">
+<img src="/img/loading.png" data-original="/p/a80221a4/4.png">
 <p>点击 <code>启动压缩器</code> 启动后就可以向 <code>监视文件夹</code> 放置图片文件了，符合条件的图片（默认接受jpg、png格式图片，更多请查看下面）将被压缩，通过调节 <code>压缩率</code> 滑块使用不同压缩率对图片进行压缩。</p>
 <p>效果通过以下动态图展示。</p>
-<img src="/img/loading.png" data-original="/p/undefined/5.gif">
+<img src="/img/loading.png" data-original="/p/a80221a4/5.gif">
 <h3 id="关于工具"><a class="header-anchor" href="#关于工具"></a>关于工具</h3>
 <p>前几天受朋友启发，来了一个灵感：做一个监控指定文件夹图片新增、重命名操作，并自动压缩图片。虽然现在网络传输速越来越快，流量也开始免费，但压缩还是有必要的。</p>
 <p>刚好写博客也有这样的需求，经常会遇到一些图片体积比较大，这样的图片放上网页显示并不合适，所以一般都会进行压缩再使用，以前压缩一般是靠批量压缩工具或者上ps处理，这次自己写一个自动压缩器试试。</p>
