@@ -581,11 +581,11 @@ body {
 .post-container .post-title {
   width: 100%;
   text-align: center;
-  line-height: 24px;
+  line-height: 32px;
   margin-top: 0;
   margin-bottom: 5px;
   color: #101010;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 300;
 }
 .post-container .post-meta {
@@ -637,7 +637,7 @@ body {
 }
 .post-content img {
   margin: 8px 0 8px 30px;
-  max-width: 80%;
+  max-width: 90%;
   display: block;
 }
 .post-content ul,
@@ -924,7 +924,7 @@ code {
   color: #555;
   background: #eee;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 15px;
 }
 pre {
   padding: 10px;
@@ -1163,7 +1163,7 @@ pre .javascript .function {
   margin-bottom: 10px;
   text-decoration: none;
   color: #999999;
-  font-size: 14px;
+  font-size: 15px;
 }
 .toc-article li a span {
   word-break: break-all;

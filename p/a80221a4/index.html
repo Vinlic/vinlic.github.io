@@ -13,7 +13,7 @@
 
     <title>
         
-        Linux交叉编译tcpdump到Android x86平台 - Vinlic的博客 | Vinlic Blog
+        小工具发布：监视文件夹图片自动压缩图片——网页上图神器 - Vinlic的博客 | Vinlic Blog
         
     </title>
 
@@ -91,7 +91,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题来源"><span class="toc-text">问题来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始编译"><span class="toc-text">开始编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行程序"><span class="toc-text">运行程序</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#工具下载"><span class="toc-text">工具下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具简介"><span class="toc-text">工具简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能介绍"><span class="toc-text">功能介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用案例"><span class="toc-text">使用案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于工具"><span class="toc-text">关于工具</span></a></li></ol>
 </div>
     
 </div>
@@ -121,21 +121,21 @@
 
 <div class="post-container">
     <div class="post-title">
-        Linux交叉编译tcpdump到Android x86平台
+        小工具发布：监视文件夹图片自动压缩图片——网页上图神器
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-08-06 00:27:35</span></span>
+        <span class="attr">发布于：<span>2018-08-13 18:22:11</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/tags/#ARM" title="ARM">ARM</a>
+        <a class="tag" href="/tags/#发布" title="发布">发布</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#x86" title="x86">x86</a>
+        <a class="tag" href="/tags/#工具" title="工具">工具</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#Android" title="Android">Android</a>
+        <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
         <span>/</span>
         
         
@@ -144,31 +144,46 @@
 
     </div>
     <div class="post-content ">
-        <h3 id="问题来源"><a class="header-anchor" href="#问题来源"></a>问题来源</h3>
-<p>之前在Genymotion上运行下载的 <code>tcpdump</code> （运行在Android arm平台的抓包程序） 的时候发现并不支持：<code>not executable: magic 7F45</code>。</p>
-<p>很明显，运行在原来Android arm平台上<code>tcpdump</code> 无法在Android x86平台上运行。</p>
-<p>Android x86的Linux内核是通用的32位Linux内核，这个时候我们可以借助Linux编译 <code>tcpdump</code> 移植到Android x86平台。</p>
-<h3 id="准备工作"><a class="header-anchor" href="#准备工作"></a>准备工作</h3>
-<p>博主是拿一台闲置的CentOS7系统服务器拿来作为编译机。</p>
-<p>首先先使用 <code>yum groupinstall</code> 安装 <code>Development Tools</code> 开发工具包和 <code>glibc-static</code> 静态库。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yum groupinstall -y <span class="string">"Development Tools"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install -y glib-static</span></span><br></pre></td></tr></table></figure>
-<p>下载 <code>tcpdump</code> 和 <code>libpcap</code> 源码包并解压。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget http://www.tcpdump.org/release/tcpdump-4.9.2.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> wget http://www.tcpdump.org/release/libpcap-1.9.0.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf tcpdump-4.9.2.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf libpcap-1.9.0.tar.gz</span></span><br></pre></td></tr></table></figure>
-<h3 id="开始编译"><a class="header-anchor" href="#开始编译"></a>开始编译</h3>
-<p>进入 <code>libpcap-1.9.0</code> 文件夹，编译 <code>libpcap</code> 。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> libpcap-1.9.0</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> CC=gcc</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --host=i686-pc-linux-gnu --with-pcap=linux</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ..</span></span><br></pre></td></tr></table></figure>
-<p>进入 <code>tcpdump-4.9.2</code> 文件夹，编译 <code>tcpdump</code> 。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> tcpdump-4.9.2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> ac_cv_linux_vers=2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> CFLAGS=-static</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> CPPFLAGS=-static</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> LDFLAGS=-static</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --host=i686-pc-linux-gnu --<span class="built_in">disable</span>-ipv6</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br></pre></td></tr></table></figure>
-<p>编译完成后，会在 <code>tcpdump-4.9.2</code> 文件夹里生成一个 <code>tcpdump</code> 文件，可以通过 <code>file</code> 命令查看。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ file tcpdump</span><br></pre></td></tr></table></figure>
-<img src="/img/loading.png" data-original="/p/9cbe3a39/1.jpg" title="验证">
-<h3 id="运行程序"><a class="header-anchor" href="#运行程序"></a>运行程序</h3>
-<p>使用 <code>adb push</code> 将tcpdump文件复制到在Genymotion运行的Android模拟器中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> adb push tcpdump /data/<span class="built_in">local</span></span></span><br></pre></td></tr></table></figure>
-<p>在 <code>adb shell</code> 中运行 <code>tcpdump</code> 试试。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> adb shell</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> chmod 777 /data/<span class="built_in">local</span>/tcpdump</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> /data/<span class="built_in">local</span>/tcpdump -h</span></span><br></pre></td></tr></table></figure>
-<p>运行成功，任务完成~</p>
-<img src="/img/loading.png" data-original="/p/9cbe3a39/2.jpg" title="运行tcpdump">
+        <h3 id="工具下载"><a class="header-anchor" href="#工具下载"></a>工具下载</h3>
+<h3 id="工具简介"><a class="header-anchor" href="#工具简介"></a>工具简介</h3>
+<p>名称：<strong>Image Passive Compresser</strong></p>
+<p>介绍：监视图片目录图片文件变化根据过滤条件自动进行压缩的工具</p>
+<p>版本：<strong>1.0</strong></p>
+<p>系统要求：<strong>Windows 64位操作系统 + .NET FrameWork 4.5或以上</strong></p>
+<p>Logo（瞎鸡儿画）：</p>
+<img src="/img/loading.png" data-original="/p/a80221a4/1.png">
+<h3 id="功能介绍"><a class="header-anchor" href="#功能介绍"></a>功能介绍</h3>
+<img src="/img/loading.png" data-original="/p/a80221a4/2.png">
+<p>最基础用法：<a href="./#%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B">使用案例</a></p>
+<p>1.目前支持 <code>jpg</code> <code>png</code> <code>gif</code> 三种主流图片格式的压缩，<code>gif</code>只支持无损压缩。</p>
+<p>2.支持以下过滤功能</p>
+<ul>
+<li>图片类型：<code>jpg</code> <code>png</code> <code>gif</code> 三种可添加删除，符合类型将被压缩，选择类型后点击添加或删除。</li>
+<li>图片体积：图片体积大于或等于N的图片将被压缩，使用此功能请勾选 <code>图片体积过滤</code>。</li>
+<li>图片名称：添加或删除正则表达式来匹配符合的图片来压缩，点击 <code>添加正则表达式</code> 添加。</li>
+<li>排除图片：添加或删除排除的文件或文件夹即可在监视时略过这部分路径，点击 <code>文件夹</code> 或 <code>文件</code>添加。</li>
+</ul>
+<p><strong>过滤条件优先级：<code>图片类型</code>、<code>排除图片</code>、<code>图片名称</code>、<code>图片体积</code>，使用此优先级对图片进行过滤再压缩</strong></p>
+<p>3.允许滑动设置 <strong><code>压缩率</code></strong> 和勾选 <strong><code>无损压缩</code></strong>，压缩率<strong>越高图片体积越小</strong>，同样的由于是有损压缩，质量也将随之降级，如果希望保持图片质量请勾选无损压缩，工具将尽量无损失的压缩图片。</p>
+<p>4.监听子文件夹：默认不监听子文件夹，如果确保子文件夹不会一次性添加大量图片文件则可以勾选，因为一次性大量图片（如超过1000张）可能导致监听器缓存溢出，导致部分图片无法及时压缩，使用此功能请勾选 <code>监听子文件夹</code>。</p>
+<p>5.勾选 <code>压缩图片覆盖原图片</code> ，当 <code>监视文件夹</code> 路径与 <code>输出文件夹</code> 路径一致时，工具将直接对原图片进行压缩而不备份，如果你希望保留原图片这种情况下请不要开启它。</p>
+<p>6.勾选 <code>启动后先压缩文件夹内所有图片</code> ，假设你已经将图片放在准备监视的文件夹了，如果你希望工具启动后将 <code>监视文件夹</code> 内的所有符合过滤条件的图片压缩，请在启动前勾选此选项。需要注意的是，此项和 <code>压缩图片覆盖原图片</code> 一起勾选时需谨慎使用，因为监视和输出文件夹路径一致时将导致原图片被覆盖，如果你希望在这种情况下保留原图片，请不要两项同时勾选。</p>
+<p>7.进入 <code>帮助与日志</code> 可查看运行日志。</p>
+<p>8.几乎所有操作（如启用过滤功能或添加过滤项）都支持在压缩器运行期间启用，无需中途停用压缩器。</p>
+<img src="/img/loading.png" data-original="/p/a80221a4/3.png">
+<h3 id="使用案例"><a class="header-anchor" href="#使用案例"></a>使用案例</h3>
+<p>假设当前存在 <code>E:\test</code> 和 <code>E:\test\output</code> 两个文件夹，现在我们需要实现：如果有图片进入 <code>E:\test</code> 则将这些图片压缩输出到 <code>E:\test\output</code> 文件夹，按以下流程操作：</p>
+<p>点击上下 <code>浏览</code> 按钮选择 <code>监视文件夹</code> 和 <code>输出文件夹</code>，两个文件夹路径允许一样，但要注意覆盖问题（默认不覆盖，解决方案参照<a href="./#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">功能介绍</a>）</p>
+<img src="/img/loading.png" data-original="/p/a80221a4/4.png">
+<p>点击 <code>启动压缩器</code> 启动后就可以向 <code>监视文件夹</code> 放置图片文件了，符合条件的图片（默认接受jpg、png格式图片，更多请查看下面）将被压缩，通过调节 <code>压缩率</code> 滑块使用不同压缩率对图片进行压缩。</p>
+<p>效果通过以下动态图展示。</p>
+<img src="/img/loading.png" data-original="/p/a80221a4/5.gif">
+<h3 id="关于工具"><a class="header-anchor" href="#关于工具"></a>关于工具</h3>
+<p>前几天受朋友启发，来了一个灵感：做一个监控指定文件夹图片新增、重命名操作，并自动压缩图片。虽然现在网络传输速越来越快，流量也开始免费，但压缩还是有必要的。</p>
+<p>刚好写博客也有这样的需求，经常会遇到一些图片体积比较大，这样的图片放上网页显示并不合适，所以一般都会进行压缩再使用，以前压缩一般是靠批量压缩工具或者上ps处理，这次自己写一个自动压缩器试试。</p>
+<p>这几天就搬出我很久没碰的C# WinForm，花了些心思做了出来，不得不说太久没用了确实很不顺手，在开发的时候是站在用户角度上看，所以尽量不做得太粗糙，三天时间算是勉强完工了，其实之前有更齐全功能的想法，最近有更高优先级的项目就先砍掉了那些非主要功能了，本文章截图都是使用这个工具压缩后的。</p>
+<p>引用了开源项目 <a href="https://github.com/tjko/jpegoptim" rel="external nofollow noopener noreferrer" target="_blank">jpegoptim</a>、<a href="https://pngquant.org/" rel="external nofollow noopener noreferrer" target="_blank">pngquant</a>、<a href="http://www.lcdf.org/gifsicle/" rel="external nofollow noopener noreferrer" target="_blank">gifsicle</a>，在此鸣谢。</p>
+
         
             <div class="donate-container">
     <div class="donate-button">
@@ -248,7 +263,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'Linux交叉编译tcpdump到Android x86平台',
+        id: '小工具发布：监视文件夹图片自动压缩图片——网页上图神器',
         owner: 'Vinlic',
         repo: 'vinlic.github.io',
         oauth: {
