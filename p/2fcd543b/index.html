@@ -187,7 +187,7 @@
 <p>这里也报了一个WANING，这里使用 <code>partprobe</code> 重读分区表即可（partprobe可以修改kernel中分区表，使kernel重新读取分区表。 因此，使用该命令就可以创建分区并且在不重新启动机器的情况下系统能够识别这些分区）。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]# partprobe</span><br></pre></td></tr></table></figure>
 <p>格式化新建的分区 <code>/dev/vdb2</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]# mkfs –t ext3 /dev/vdb2</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]# mkfs -t ext3 /dev/vdb2</span><br></pre></td></tr></table></figure>
 <p>查看数据盘的分区表及使用情况</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@host ~]# partx /dev/vdb</span><br><span class="line">NR     START       END   SECTORS SIZE NAME UUID</span><br><span class="line"> 1      2048 104857599 104855552  50G</span><br><span class="line"> 2 104857600 167772159  62914560  30G</span><br></pre></td></tr></table></figure>
 <p>看到这个结果心里是欣喜的，因为那30G就是扩容的部分，现在在vdb2中只需要将这个分区加入LVM即可扩容。</p>
